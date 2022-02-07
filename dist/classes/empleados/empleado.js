@@ -1,12 +1,12 @@
 "use strict";
-//  SUBCLASE ESPECIALISTA EN MOTOS  //
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Mecanico = void 0;
-class Mecanico {
-    constructor(id, nombre, sueldo) {
+exports.Empleado = void 0;
+class Empleado {
+    constructor(id, nombre, sueldo, tipoEmpleado) {
         this._id = id;
         this._nombre = nombre;
         this._sueldo = sueldo;
+        this._tipoEmpleado = tipoEmpleado;
     }
     //     GETTERS AND SETTERS      //
     get id() {
@@ -18,5 +18,8 @@ class Mecanico {
     get sueldo() {
         return this._sueldo;
     }
+    get tipoMec() {
+        return this._tipoEmpleado;
+    }
 }
-exports.Mecanico = Mecanico;
+exports.Empleado = Empleado;
