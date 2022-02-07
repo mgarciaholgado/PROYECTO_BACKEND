@@ -2,9 +2,11 @@
   "name": "proyecto_backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run clean && npx tsc",
+    "start": "node ./dist/server.js",
+    "dev": "nodemon ./dist/server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/mgarciaholgado/PROYECTO_BACKEND/issues"
   },
-  "homepage": "https://github.com/mgarciaholgado/PROYECTO_BACKEND#readme"
+  "homepage": "https://github.com/mgarciaholgado/PROYECTO_BACKEND#readme",
+  "dependencies": {
+    "mongoose": "^6.2.0"
+  }
 }
