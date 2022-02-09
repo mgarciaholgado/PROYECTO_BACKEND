@@ -1,5 +1,4 @@
 import { Schema, model } from "mongoose";
-import { Reparaciones } from './reparacion';
 
 const incidenciasSchema = new Schema({
   _idIncidencia: {

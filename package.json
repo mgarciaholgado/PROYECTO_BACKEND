@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/mgarciaholgado/PROYECTO_BACKEND#readme",
   "dependencies": {
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^17.0.16",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "mongoose": "^6.2.0",

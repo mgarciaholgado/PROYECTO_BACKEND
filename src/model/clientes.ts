@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const clientesSchema = new Schema({
-  _id: {
+  _dni: {
         type: String,
         required: true,
         unique: true

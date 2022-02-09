@@ -13,7 +13,8 @@ exports.routes = void 0;
 const express_1 = require("express");
 const database_1 = require("../database/database");
 const empleados_1 = require("../model/empleados");
-class DatoRoutes {
+const reparacion_1 = require("../model/reparacion");
+class IndexRoutes {
     constructor() {
         this.getEmpleados = (req, res) => __awaiter(this, void 0, void 0, function* () {
             const nombre = req.params.nombre;
@@ -28,10 +29,9 @@ class DatoRoutes {
             yield database_1.db.desconectarBD();
         });
         this.agregarEmpleado = (req, res) => __awaiter(this, void 0, void 0, function* () {
-            const { id, nombre, sueldo, tipoEmpleado, tipoMec, horasExtra } = req.body;
+            const { nombre, sueldo, tipoEmpleado, tipoMec, horasExtra } = req.body;
             yield database_1.db.conectarBD();
             const dSchema = {
-                _id: id,
                 _nombre: nombre,
                 _sueldo: sueldo,
                 _tipoEmpleado: tipoEmpleado,
@@ -44,17 +44,62 @@ class DatoRoutes {
                 .catch((err) => res.send('Error: ' + err));
             yield database_1.db.desconectarBD();
         });
+        this.agregarReparacion = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const { nombre, coste } = req.body;
+            yield database_1.db.conectarBD();
+            const dSchema = {
+                _nombreReparacion: nombre,
+                _CosteBase: coste
+            };
+            const oSchema = new reparacion_1.Reparaciones(dSchema);
+            yield oSchema.save()
+                .then((doc) => res.send(doc))
+                .catch((err) => res.send('Error: ' + err));
+            yield database_1.db.desconectarBD();
+        });
+        this.modificarReparacion = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            yield database_1.db.conectarBD();
+            const name = req.params.nombre;
+            const { nombre, coste } = req.body;
+            yield reparacion_1.Reparaciones.findOneAndUpdate({ _nombreReparacion: name }, { _nombreReparacion: nombre, _costeBase: coste, }, { new: true })
+                .then((doc) => res.send(doc))
+                .catch((err) => res.send('Error: ' + err));
+            yield database_1.db.desconectarBD();
+        });
+        this.borrarReparacion = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            yield database_1.db.conectarBD();
+            const name = req.params.nombre;
+            yield reparacion_1.Reparaciones.findOneAndDelete({ _nombreReparacion: name })
+                .then((doc) => res.send(doc))
+                .catch((err) => res.send('Error: ' + err));
+            yield database_1.db.desconectarBD();
+        });
+        this.listarReparacion = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            yield database_1.db.conectarBD()
+                .then((mensaje) => __awaiter(this, void 0, void 0, function* () {
+                const query = yield reparacion_1.Reparaciones.find();
+                res.json(query);
+            }))
+                .catch((mensaje) => {
+                res.send(mensaje);
+            });
+            yield database_1.db.desconectarBD();
+        });
         this._router = (0, express_1.Router)();
     }
     get router() {
         return this._router;
     }
-    misRutas() {
+    routes() {
         this._router.get('/');
         this._router.get('/empleados/todos', this.getEmpleados);
         this._router.post('/empleados', this.agregarEmpleado);
+        this._router.post('/addReparacion', this.agregarReparacion);
+        this._router.put('/updateReparacion/:nombre', this.modificarReparacion);
+        this._router.delete('/deleteReparacion/:nombre', this.borrarReparacion);
+        this._router.get('/verReparacion', this.listarReparacion);
     }
 }
-const obj = new DatoRoutes();
-obj.misRutas();
-exports.routes = obj.router;
+const indexRoutes = new IndexRoutes();
+indexRoutes.routes();
+exports.routes = indexRoutes.router;

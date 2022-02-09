@@ -14,7 +14,7 @@ class Server {
     private async config(){
 
         this.app.set('port', process.env.PORT || 3000)
-        this.app.use(cors()) // evitar el error CORS
+        this.app.use(cors()) 
 
         this.app.use(express.json()) // para que nuestro servidor entienda
         // los formatos json desde clientes
@@ -34,8 +34,7 @@ class Server {
         this.app.use('/', routes)
     }
     start(){
-        this.app.listen(this.app.get('port'), 
-        () => {
+        this.app.listen(this.app.get('port'), () => {
             console.log(`Server on port: ${this.app.get('port')}`)
         })
     }

@@ -1,11 +1,9 @@
 import { Schema, model } from "mongoose";
 
 const reparacionesSchema = new Schema({
-  _idReparacion: {
+  /*_idReparacion: {
         type: String,
-        required: true,
-        unique: true
-    },
+    },*/
   _nombreReparacion: {
     type: String
   },

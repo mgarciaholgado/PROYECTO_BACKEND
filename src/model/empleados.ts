@@ -1,11 +1,11 @@
 import { Schema, model } from "mongoose";
 
 const empleadoSchema = new Schema({
-  _id: {
+  /*_id: {
         type: String,
         required: true,
         unique: true
-    },
+    },*/
   _nombre: {
     type: String,
   },
