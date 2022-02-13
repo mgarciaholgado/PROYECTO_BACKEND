@@ -2,15 +2,15 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Empleado = void 0;
 class Empleado {
-    constructor(id, nombre, sueldo, tipoEmpleado) {
-        this._id = id;
+    constructor(dni, nombre, telefono, sueldo) {
+        this._dni = dni;
         this._nombre = nombre;
+        this._telefono = telefono;
         this._sueldo = sueldo;
-        this._tipoEmpleado = tipoEmpleado;
     }
     //     GETTERS AND SETTERS      //
-    get id() {
-        return this._id;
+    get dni() {
+        return this._dni;
     }
     get nombre() {
         return this._nombre;
@@ -18,8 +18,8 @@ class Empleado {
     get sueldo() {
         return this._sueldo;
     }
-    get tipoMec() {
-        return this._tipoEmpleado;
+    get telefono() {
+        return this._telefono;
     }
 }
 exports.Empleado = Empleado;

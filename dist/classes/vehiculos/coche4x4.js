@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Mecanico = void 0;
-const empleado_1 = require("./empleado");
-class Mecanico extends empleado_1.Empleado {
-    constructor(dni, nombre, telefono, sueldo, tipoMec, horasExtras) {
-        super(dni, nombre, telefono, sueldo);
+exports.Coche = void 0;
+const vehiculo_1 = require("./vehiculo");
+class Coche extends vehiculo_1.Vehiculo {
+    constructor(id, nombre, sueldo, tipoEmpleado, tipoMec, horasExtras) {
+        super(id, nombre, sueldo, tipoEmpleado);
         this._tipoMec = tipoMec;
         this._horasExtra = horasExtras;
     }
@@ -16,4 +16,4 @@ class Mecanico extends empleado_1.Empleado {
         return this._horasExtra;
     }
 }
-exports.Mecanico = Mecanico;
+exports.Coche = Coche;

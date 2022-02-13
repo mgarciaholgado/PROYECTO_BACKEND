@@ -1,22 +1,22 @@
 export abstract class Empleado {
-    private _id: string; 
+    private _dni: string; 
     private _nombre: string;
+    private _telefono: number;
     private _sueldo: number;
-    private _tipoEmpleado: string;
 
 
 
-    constructor(id: string, nombre: string, sueldo: number, tipoEmpleado: string) {
-        this._id = id;
+    constructor(dni: string, nombre: string, telefono: number, sueldo: number) {
+        this._dni = dni;
         this._nombre = nombre;
+        this._telefono = telefono;
         this._sueldo = sueldo;
-        this._tipoEmpleado = tipoEmpleado;
     }
 
     //     GETTERS AND SETTERS      //
 
-    get id() {
-        return this._id
+    get dni() {
+        return this._dni
     }
     get nombre() {
         return this._nombre
@@ -24,7 +24,7 @@ export abstract class Empleado {
     get sueldo() {
         return this._sueldo
     }
-    get tipoMec(){
-        return this._tipoEmpleado
+    get telefono(){
+        return this._telefono
     }
 }

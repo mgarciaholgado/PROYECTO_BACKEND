@@ -1,36 +1,25 @@
 import { Schema, model } from "mongoose";
 
 const vehiculoSchema = new Schema({
-  _id: {
-        type: String,
-        required: true,
-        unique: true
+  _matricula: {
+  type: String,
     },
-  _nombre: {
+  _marca: {
     type: String,
   },
-  _sueldo: {
-    type: Number,
-  },
-  _tipoEmpleado: {
+  _color: {
     type: String,
   },
-  _empresaContratista: {
+  _tipoVehiculo: {
     type: String,
   },
-  _tipoMec: {
-    type: String,
-  },
-  _horasExtra:{
-      type: Number,
-  }
   
   
 });
 export const Vehiculos = model("vehiculos", vehiculoSchema);
 
 export type tMoto = {
-  _id: string;
+  _matricula: string;
   _nombre: string;
   _sueldo: number;
   _tipoEmpleado: string;

@@ -3,9 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Reparaciones = void 0;
 const mongoose_1 = require("mongoose");
 const reparacionesSchema = new mongoose_1.Schema({
-    /*_idReparacion: {
-          type: String,
-      },*/
+    _codReparacion: {
+        type: Number,
+    },
+    _matricula: {
+        type: String,
+    },
     _nombreReparacion: {
         type: String
     },

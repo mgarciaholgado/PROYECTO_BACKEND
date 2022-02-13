@@ -3,28 +3,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Vehiculos = void 0;
 const mongoose_1 = require("mongoose");
 const vehiculoSchema = new mongoose_1.Schema({
-    _id: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    _nombre: {
+    _matricula: {
         type: String,
     },
-    _sueldo: {
-        type: Number,
-    },
-    _tipoEmpleado: {
+    _marca: {
         type: String,
     },
-    _empresaContratista: {
+    _color: {
         type: String,
     },
-    _tipoMec: {
+    _tipoVehiculo: {
         type: String,
     },
-    _horasExtra: {
-        type: Number,
-    }
 });
 exports.Vehiculos = (0, mongoose_1.model)("vehiculos", vehiculoSchema);

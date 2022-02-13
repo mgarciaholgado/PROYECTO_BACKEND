@@ -5,9 +5,11 @@ export class Mecanico extends Empleado {
     _horasExtra: Number;
 
 
-    constructor(id: string, nombre: string, sueldo: number, tipoEmpleado: string, tipoMec: string, horasExtras:Number) {
+    constructor(dni: string, nombre: string, telefono: number, sueldo: number, tipoMec:string, horasExtras:number) {
         
-        super(id,nombre,sueldo,tipoEmpleado);
+      
+      
+        super(dni,nombre,telefono,sueldo);
         this._tipoMec = tipoMec;
         this._horasExtra = horasExtras;
     }
